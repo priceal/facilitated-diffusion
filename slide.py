@@ -6,19 +6,11 @@ These are used in scaling output of slide()
 """
 D = 1.0
 k = 1.0
-numsamples = 2000
+numsamples = 2000000
 
 #################################################################
-# import modules if not imported already
-try:
-    fd
-    plt
-    np
-except NameError:
-    import facilitatedDiffusion as fd
-    import pylab as plt
-    import numpy as np
-    
+runfile('init.py', current_namespace=True)
+
 # draw samples from sliding distribution and store in samples 
 samples = []
 for i in range(numsamples):
@@ -37,3 +29,4 @@ plt.figure(2)
 plt.hist(z,bins=80)
 
 print("calculated D = {}, k = {}".format(0.5*(z*z/t).mean(), 1.0/t.mean()))
+
